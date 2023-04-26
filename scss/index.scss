@@ -38,7 +38,7 @@
               transform: translateY(-50%);
               text-align: left;
               z-index: 0;
-              .parallax {
+              .parallax-scroll {
                 transform: translate(-50%, -50%);
                 transition: transform 1s cubic-bezier(0.2, 0.49, 0.32, 0.99);
                 &.text {
@@ -80,6 +80,45 @@
   }
   .services {
     text-align: center;
+    .col {
+      .parallax-container {
+        position: relative;
+        overflow: hidden;
+        // z-index: 0;
+        .parallax-mouse {
+          transform: scale(1.4);
+          // transform: translate(-50%, -50%);
+          transition: transform 1s cubic-bezier(0.2, 0.49, 0.32, 0.99);
+          &.bg-img {
+            // position: absolute;
+            // top: 50%;
+            // left: 50%;
+            // width: 100%;
+            // height: 80vh;
+            object-fit: cover;
+            z-index: -1;
+          }
+        }
+        &:hover i {
+          visibility: hidden;
+          opacity: 0;
+        }
+        i {
+          transition: visibility 0.5s ease-in-out, opacity 0.5s ease-in-out;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+          height: var(--h1-fontsize);
+          width: var(--h1-fontsize);
+          line-height: var(--h1-fontsize);
+          background-color: var(--color-dark-black);
+          font-size: var(--h2-fontsize);
+          color: #fff;
+        }
+      }
+    }
     p {
       text-align: center;
     }
@@ -89,7 +128,7 @@
   }
   .our-team {
     position: relative;
-    .parallax {
+    .parallax-scroll {
       transform: translate(-50%, -50%);
       transition: transform 1s cubic-bezier(0.2, 0.49, 0.32, 0.99);
       &.bg-img {
@@ -163,7 +202,7 @@
           position: inherit;
           .carousel-item {
             position: inherit;
-            .parallax {
+            .parallax-scroll {
               transform: translate(-50%, -50%);
               transition: transform 1s cubic-bezier(0.2, 0.49, 0.32, 0.99);
               &.bg-img {
