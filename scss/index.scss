@@ -266,4 +266,90 @@
       }
     }
   }
+  .review-skill {
+    z-index: -2;
+    position: relative;
+    .parallax-scroll {
+      transform: translate(-50%, -50%);
+      transition: transform 1s cubic-bezier(0.2, 0.49, 0.32, 0.99);
+      &.bg-img {
+        position: absolute;
+        top: 150%;
+        left: 50%;
+        width: 100%;
+        height: 180%;
+        object-fit: cover;
+        z-index: -1;
+      }
+    }
+    .card {
+      background-color: var(--color-dark-black);
+      box-shadow: var(--card-box-shadow);
+      .card-body {
+        padding: 4rem;
+        .carousel {
+          .carousel-indicators {
+            position: absolute;
+            margin: 0;
+            bottom: -2rem;
+            img {
+              margin-bottom: 0;
+              width: 100px;
+              height: auto;
+            }
+          }
+          .carousel-inner {
+            .carousel-item {
+              > p {
+                font-size: var(--h3-fontsize);
+                color: #fff;
+              }
+              .bi-quote {
+                font-size: var(--h2-fontsize);
+                color: #fff;
+              }
+              .row {
+                margin-top: 4rem;
+                img {
+                  border-radius: 50%;
+                }
+                p:first-of-type {
+                  color: var(--color-primary);
+                  font-size: 500;
+                  margin: 0;
+                }
+                p:last-of-type {
+                  margin: 0;
+                  font-size: var(--h5-fontsize);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .skills {
+      margin-top: 2.5rem;
+      p {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+      }
+      .progress {
+        .progress-bar {
+          background-color: var(--color-primary);
+          &.w-60 {
+            width: 60%;
+          }
+          &.w-90 {
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+  .interior-cards {
+    text-align: center;
+  }
 }

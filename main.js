@@ -74,7 +74,6 @@ const parallax_sel = document.querySelectorAll(".parallax-scroll");
 let syValue = 0;
 
 window.addEventListener("scroll", (e) => {
-  //   xValue = window.scrollX;
   syValue = window.scrollY;
 
   parallax_sel.forEach((el) => {
