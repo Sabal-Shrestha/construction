@@ -511,44 +511,107 @@
       </section>
       <section class="interior-cards">
         <div class="container">
+          <img src="./img/h5-ss9-bg.webp" class="bg-img" alt="..." />
           <h2 class="small-styled-heading">WHAT WE DO</h2>
           <p class="sub-heading">Special Services</p>
-          <div class="row row-cols-1 row-cols-md-3">
+          <div
+            class="row row-cols-1 row-cols-md-3 g-md-0 justify-content-center"
+          >
             <div class="col">
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum,
-                modi? Voluptate possimus assumenda nostrum recusandae sequi
-                veniam corporis consequatur aspernatur, id dolore aperiam quam
-                iusto nemo reprehenderit fugit illum nihil quibusdam voluptatem
-                quod nisi ipsa dignissimos molestias? Porro error ipsum
-                asperiores corporis, officiis quaerat corrupti fugit, blanditiis
-                molestias libero quas recusandae officia at autem totam quis
-                ratione incidunt rerum eum.
-              </p>
+              <div class="card first-card">
+                <div class="card-body">
+                  <div class="parallax-container">
+                    <img
+                      src="./img/square-furniture.webp"
+                      data-speedx="0.09"
+                      data-speedy="0.09"
+                      class="parallax-mouse"
+                      alt=""
+                    />
+                  </div>
+                  <h3>Multidis ciplinary Architecture</h3>
+                  <p>
+                    We make art with light. We create large-scale luminous and
+                    digital artworks
+                  </p>
+                  <ul>
+                    <li>Interior Sketch</li>
+                    <li>3D Modeling</li>
+                    <li>Intrance UX</li>
+                  </ul>
+                  <a href="" class="btn-all">GET A QUOTE</a>
+                </div>
+              </div>
             </div>
             <div class="col">
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum,
-                modi? Voluptate possimus assumenda nostrum recusandae sequi
-                veniam corporis consequatur aspernatur, id dolore aperiam quam
-                iusto nemo reprehenderit fugit illum nihil quibusdam voluptatem
-                quod nisi ipsa dignissimos molestias? Porro error ipsum
-                asperiores corporis, officiis quaerat corrupti fugit, blanditiis
-                molestias libero quas recusandae officia at autem totam quis
-                ratione incidunt rerum eum.
-              </p>
+              <div class="card first-card">
+                <div class="card-body">
+                  <div class="parallax-container">
+                    <img
+                      src="./img/square-furniture.webp"
+                      data-speedx="0.09"
+                      data-speedy="0.09"
+                      class="parallax-mouse"
+                      alt=""
+                    />
+                  </div>
+                  <h3>Multidis ciplinary Architecture</h3>
+                  <p>
+                    We make art with light. We create large-scale luminous and
+                    digital artworks
+                  </p>
+                  <ul>
+                    <li>Interior Sketch</li>
+                    <li>3D Modeling</li>
+                    <li>Intrance UX</li>
+                  </ul>
+                  <a href="" class="btn-all">GET A QUOTE</a>
+                </div>
+              </div>
             </div>
             <div class="col">
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum,
-                modi? Voluptate possimus assumenda nostrum recusandae sequi
-                veniam corporis consequatur aspernatur, id dolore aperiam quam
-                iusto nemo reprehenderit fugit illum nihil quibusdam voluptatem
-                quod nisi ipsa dignissimos molestias? Porro error ipsum
-                asperiores corporis, officiis quaerat corrupti fugit, blanditiis
-                molestias libero quas recusandae officia at autem totam quis
-                ratione incidunt rerum eum.
-              </p>
+              <div class="card first-card">
+                <div class="card-body">
+                  <div class="parallax-container">
+                    <img
+                      src="./img/square-furniture.webp"
+                      data-speedx="0.09"
+                      data-speedy="0.09"
+                      class="parallax-mouse"
+                      alt=""
+                    />
+                  </div>
+                  <h3>Multidis ciplinary Architecture</h3>
+                  <p>
+                    We make art with light. We create large-scale luminous and
+                    digital artworks
+                  </p>
+                  <ul>
+                    <li>Interior Sketch</li>
+                    <li>3D Modeling</li>
+                    <li>Intrance UX</li>
+                  </ul>
+                  <a href="" class="btn-all">GET A QUOTE</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="counter row row-cols-4">
+            <div class="cols">
+              <span id="counter1">00</span>
+              <p>Successful Projects</p>
+            </div>
+            <div class="cols">
+              <span id="counter2">00</span>
+              <p>Satisfied Clients</p>
+            </div>
+            <div class="cols">
+              <span id="counter3">00</span>
+              <p>Years of Experience</p>
+            </div>
+            <div class="cols">
+              <span id="counter4">00</span>
+              <p>Awards Winning</p>
             </div>
           </div>
         </div>
@@ -592,5 +655,56 @@
       crossorigin="anonymous"
     ></script>
     <script src="./main.js"></script>
+    <script defer>
+      function autoIncreaseNumber(counter, maxNumber, duration) {
+        let currentNumber = 0;
+        const increment = maxNumber / (duration / 0.5);
+
+        function increaseNumber() {
+          currentNumber += increment;
+          if (currentNumber <= maxNumber) {
+            // Use padStart() to add leading zeros
+            counter.textContent = currentNumber.toFixed(0).padStart(2, "0");
+          } else {
+            // Use padStart() to add leading zeros to the max number
+            counter.textContent = maxNumber.toFixed(0).padStart(2, "0");
+            clearInterval(interval);
+          }
+        }
+
+        let interval; // Declare interval outside the IntersectionObserver
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            interval = setInterval(increaseNumber, 10);
+            observer.disconnect();
+          }
+        });
+        observer.observe(counter);
+      }
+
+      // Get the target counters and maximum numbers
+      const counter1 = document.getElementById("counter1");
+      const maxNumber1 = 65;
+      const counter2 = document.getElementById("counter2");
+      const maxNumber2 = 89;
+      const counter3 = document.getElementById("counter3");
+      const maxNumber3 = 50;
+      const counter4 = document.getElementById("counter4");
+      const maxNumber4 = 10;
+
+      // Determine the max duration based on the maximum number
+      const maxDuration = Math.max(
+        maxNumber1,
+        maxNumber2,
+        maxNumber3,
+        maxNumber4
+      );
+
+      // Call the auto-increasing function for each counter with the same duration
+      autoIncreaseNumber(counter1, maxNumber1, maxDuration);
+      autoIncreaseNumber(counter2, maxNumber2, maxDuration);
+      autoIncreaseNumber(counter3, maxNumber3, maxDuration);
+      autoIncreaseNumber(counter4, maxNumber4, maxDuration);
+    </script>
   </body>
 </html>

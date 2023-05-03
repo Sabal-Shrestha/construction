@@ -350,6 +350,103 @@
     }
   }
   .interior-cards {
+    position: relative;
+    // background: url("../img/h5-ss9-bg.webp");
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // z-index: -3;
     text-align: center;
+    .bg-img {
+      position: absolute;
+      z-index: -3;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    .row {
+      width: 90%;
+      text-align: center;
+      margin: auto;
+      .col {
+        .card {
+          border-radius: 0;
+          border: none;
+          color: #fff;
+          .card-body {
+            padding: 6rem;
+            text-align: left;
+            .parallax-container {
+              position: relative;
+              overflow: hidden;
+              width: 40%;
+              // z-index: 0;
+              .parallax-mouse {
+                transform: scale(1.4);
+                transition: transform 1s cubic-bezier(0.2, 0.49, 0.32, 0.99);
+              }
+            }
+            h3 {
+              margin: 2rem 0rem;
+              font-weight: 300;
+            }
+            p {
+              font-weight: 200;
+              color: #fff;
+            }
+            ul {
+              list-style-type: none;
+              padding-left: 0;
+              margin: 2rem 0rem;
+              font-size: var(--p-h4-fontsize);
+              li:before {
+                content: "\F59E";
+                font-family: bootstrap-icons;
+                vertical-align: middle;
+                margin-right: 0.5rem;
+              }
+            }
+            .btn-all {
+              padding: 1.5rem 3.5rem;
+              font-weight: 300;
+              font-size: var(--h5-fontsize);
+            }
+          }
+          &.first-card {
+            background: url("../img/rectangle-image.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+          &.second-card {
+            background: url("../img/h5-ss9-bg.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+          &.third-card {
+            background: url("../img/rectangle-image.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+    .counter {
+      margin-top: 5rem;
+      .cols {
+        display: flex;
+        align-items: center;
+        span {
+          font-weight: 800;
+          color: var(--color-primary);
+          font-size: var(--h1-fontsize);
+          margin-right: 2.5rem;
+        }
+        p {
+          text-align: left;
+          margin-bottom: 0;
+          color: #fff;
+          font-size: var(--h3-fontsize);
+        }
+      }
+    }
   }
 }
