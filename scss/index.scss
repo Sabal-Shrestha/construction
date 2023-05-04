@@ -67,6 +67,45 @@
                 z-index: 2;
               }
             }
+            .carousel-controls {
+              position: absolute;
+              width: 300px;
+              right: 30px;
+              bottom: 100px;
+              display: flex;
+              .row {
+                align-items: center;
+                .carousel-control-prev,
+                .carousel-control-next {
+                  position: relative;
+                  // background-color: rgba(20, 20, 20, 0.79);
+                  // inset: 0;
+                  // z-index: 0;
+                  width: 10rem;
+                  height: 13rem;
+                  img {
+                    position: relative;
+                    // inset: 0;
+                    height: 100%;
+                    // z-index: 1;
+                  }
+                  .overlay {
+                    background-color: rgba(20, 20, 20, 0.79);
+                    inset: 0;
+                  }
+                  span {
+                    position: absolute;
+
+                    // z-index: 2;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 5rem;
+                    height: 8rem;
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -80,42 +119,45 @@
   }
   .services {
     text-align: center;
-    .col {
-      .parallax-container {
-        position: relative;
-        overflow: hidden;
-        // z-index: 0;
-        .parallax-mouse {
-          transform: scale(1.4);
-          // transform: translate(-50%, -50%);
-          transition: transform 1s cubic-bezier(0.2, 0.49, 0.32, 0.99);
-          &.bg-img {
-            // position: absolute;
-            // top: 50%;
-            // left: 50%;
-            // width: 100%;
-            // height: 80vh;
-            object-fit: cover;
-            z-index: -1;
+    .row {
+      margin-top: 1rem;
+      .col {
+        .parallax-container {
+          position: relative;
+          overflow: hidden;
+          // z-index: 0;
+          .parallax-mouse {
+            transform: scale(1.4);
+            // transform: translate(-50%, -50%);
+            transition: transform 1s cubic-bezier(0.2, 0.49, 0.32, 0.99);
+            &.bg-img {
+              // position: absolute;
+              // top: 50%;
+              // left: 50%;
+              // width: 100%;
+              // height: 80vh;
+              object-fit: cover;
+              z-index: -1;
+            }
           }
-        }
-        &:hover i {
-          visibility: hidden;
-          opacity: 0;
-        }
-        i {
-          transition: visibility 0.5s ease-in-out, opacity 0.5s ease-in-out;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 1;
-          height: var(--h1-fontsize);
-          width: var(--h1-fontsize);
-          line-height: var(--h1-fontsize);
-          background-color: var(--color-dark-black);
-          font-size: var(--h2-fontsize);
-          color: #fff;
+          &:hover i {
+            visibility: hidden;
+            opacity: 0;
+          }
+          i {
+            transition: visibility 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            height: var(--h1-fontsize);
+            width: var(--h1-fontsize);
+            line-height: var(--h1-fontsize);
+            background-color: var(--color-dark-black);
+            font-size: var(--h2-fontsize);
+            color: #fff;
+          }
         }
       }
     }
@@ -367,6 +409,7 @@
       width: 90%;
       text-align: center;
       margin: auto;
+      margin-top: 2rem;
       .col {
         .card {
           border-radius: 0;
@@ -430,7 +473,7 @@
       }
     }
     .counter {
-      margin-top: 5rem;
+      margin: 5rem auto 0rem;
       .cols {
         display: flex;
         align-items: center;
@@ -445,6 +488,74 @@
           margin-bottom: 0;
           color: #fff;
           font-size: var(--h3-fontsize);
+        }
+      }
+    }
+  }
+  .news-feeds {
+    text-align: center;
+    position: relative;
+    .row {
+      margin-top: 1rem;
+      .col {
+        transition: margin-top 0.5s cubic-bezier(0.2, 0.49, 0.32, 0.99);
+        &:hover {
+          margin-top: 1rem;
+          .card {
+            .card-body {
+              .card-badge {
+                background-color: var(--color-primary);
+              }
+              h3 {
+                color: var(--color-primary);
+              }
+              a {
+                color: var(--color-primary);
+                background-size: 100% 2px;
+              }
+            }
+          }
+        }
+        .card {
+          text-align: left;
+          border-radius: 0rem;
+          background-color: var(--color-dark-black);
+          width: 90%;
+          margin: auto;
+          margin-top: -3rem;
+          .card-body {
+            padding: 3rem;
+            .card-badge {
+              display: inline-block;
+              font-size: var(--h5-fontsize);
+              background-color: var(--background-color-black);
+              color: #fff;
+              padding: 0.5rem 1.5rem;
+              width: fit-content;
+              margin: auto;
+              border: 1px solid var(--background-color-black);
+              transition: background-color 0.5s ease;
+            }
+            h3 {
+              transition: color 0.5s ease;
+              color: #fff;
+              margin: 2rem 0;
+            }
+            a {
+              text-decoration: none;
+              color: #fff;
+              font-size: var(--h5-fontsize);
+              background-image: linear-gradient(
+                90deg,
+                var(--color-primary) 0,
+                var(--color-primary) 95%
+              );
+              background-size: 0 2px;
+              background-repeat: no-repeat;
+              background-position: left bottom;
+              transition: background-size 0.5s ease, color 0.5s ease;
+            }
+          }
         }
       }
     }
