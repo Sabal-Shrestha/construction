@@ -126,7 +126,9 @@ video {
 }
 footer {
   padding: 3rem 0;
-  background-color: var(--background-color-black);
+  background: url("../img/footer-bg.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
   h3,
   h4,
   p,

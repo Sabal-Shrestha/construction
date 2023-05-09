@@ -1,46 +1,3 @@
-// const parallaxContainers = document.querySelectorAll(".parallax-container");
-
-// parallaxContainers.forEach((parallaxContainer) => {
-//   const parallax_mel = parallaxContainer.querySelectorAll(".parallax-mouse");
-//   let mxValue = 0,
-//     myValue = 0;
-
-//   parallaxContainer.addEventListener("mousemove", (e) => {
-//     const rect = parallaxContainer.getBoundingClientRect();
-//     const centerX = rect.left + rect.width / 2;
-//     const centerY = rect.top + rect.height / 2;
-//     mxValue = (e.clientX - centerX) / 50;
-//     myValue = (e.clientY - centerY) / 50;
-
-//     parallax_mel.forEach((el) => {
-//       let speedx = el.dataset.speedx;
-//       let speedy = el.dataset.speedy;
-//       let translateX = "";
-//       let translateY = "";
-//       if (mxValue > 0) {
-//         translateX = `translateX(calc(50% + ${Math.abs(mxValue * speedx)}px))`;
-//       } else {
-//         translateX = `translateX(calc(50% - ${Math.abs(mxValue * speedx)}px))`;
-//       }
-//       if (myValue > 0) {
-//         translateY = `translateY(calc(50% + ${Math.abs(myValue * speedy)}px))`;
-//       } else {
-//         translateY = `translateY(calc(50% - ${Math.abs(myValue * speedy)}px))`;
-//       }
-//       el.style.transform = `
-//         scale(1.4)
-//         ${translateX}
-//         ${translateY}
-//         `;
-//     });
-//   });
-
-//   parallaxContainer.addEventListener("mouseout", () => {
-//     parallax_mel.forEach((el) => {
-//       el.style.transform = "";
-//     });
-//   });
-// });
 const parallaxContainers = document.querySelectorAll(".parallax-container");
 
 parallaxContainers.forEach((parallaxContainer) => {
@@ -84,3 +41,83 @@ window.addEventListener("scroll", (e) => {
     }px)) translateY(calc(-50% + ${syValue * speedy}px))`;
   });
 });
+filterObjects("all");
+
+function filterObjects(c) {
+  var x, i;
+  x = document.getElementsByClassName("box");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    removeClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
+  }
+}
+
+function addClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+function removeClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// add "active" class to the "All" menu item by default
+document.querySelector(".menu li:first-child").classList.add("active");
+
+// add click event listener to menu items
+document.querySelectorAll(".menu li").forEach(function (item) {
+  item.addEventListener("click", function () {
+    // remove "active" class from all menu items
+    document.querySelectorAll(".menu li").forEach(function (item) {
+      item.classList.remove("active");
+    });
+    // add "active" class to clicked menu item
+    this.classList.add("active");
+    // filter objects based on the clicked menu item
+    filterObjects(this.getAttribute("data-filter"));
+  });
+});
+
+var slideIndex = 1;
+showSlide(slideIndex);
+
+function nextSlide() {
+  showSlide((slideIndex += 1));
+}
+
+function prevSlide() {
+  showSlide((slideIndex -= 1));
+}
+
+function currentSlide(n) {
+  showSlide((slideIndex = n));
+}
+
+function showSlide(n) {
+  var i;
+  var slides = document.getElementsByClassName("slides");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.transform = "translateX(-" + (slideIndex - 1) * 100 + "%)";
+  }
+}
