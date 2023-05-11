@@ -361,11 +361,11 @@
       <section class="navs-tabs bgc-black">
         <div class="container">
           <div class="row align-items-center justify-content-around">
-            <div class="col-12 col-md-4 col-lg-3">
+            <div class="col-12 col-lg-3">
               <h2 class="small-styled-heading">OUR PROJECTS</h2>
               <p class="sub-heading">Our Creative Works</p>
             </div>
-            <div class="col-12 col-md-8 col-lg-7">
+            <div class="col-12 col-lg-7">
               <ul class="menu">
                 <li data-filter="all">All</li>
                 <li data-filter="abstract">Abstract</li>
@@ -375,18 +375,6 @@
                 <li data-filter="technology">Technology</li>
               </ul>
             </div>
-            <!-- <div class="row objects">
-              <div class="col-12 col-md-3 col-lg-4 box abstract">Toyota</div>
-              <div class="col-12 col-md-3 col-lg-4 box food abstract">
-                Honda
-              </div>
-              <div class="col-12 col-md-3 col-lg-4 box mockup">Orange</div>
-              <div class="col-12 col-md-3 col-lg-4 box office">Snake</div>
-              <div class="col-12 col-md-3 col-lg-4 box technology">Green</div>
-              <div class="col-12 col-md-3 col-lg-4 box mockup">Banana</div>
-              <div class="col-12 col-md-3 col-lg-4 box food">Red</div>
-              <div class="col-12 col-md-3 col-lg-4 box office">Pear</div>
-            </div> -->
             <!-- Slider main container -->
             <div class="swiper objects">
               <!-- Additional required wrapper -->
@@ -411,10 +399,11 @@
                   <img src="./img/rectangle-image.webp" alt="" />
                 </div>
               </div>
-
+              <div class="swiper-navigation">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
               <!-- If we need navigation buttons -->
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
             </div>
           </div>
         </div>
@@ -430,7 +419,7 @@
           />
           <!-- <div class="overlay"></div> -->
           <div
-            class="row row-cols-1 row-cols-lg-2 align-items-center justify-content-center g-4 g-md-5"
+            class="row row-cols-1 row-cols-lg-2 align-items-center g-4 g-md-5"
           >
             <div class="col order-1">
               <h2 class="small-styled-heading">OUR TEAM</h2>
@@ -451,6 +440,10 @@
             </div>
 
             <div class="col order-0">
+              <div class="see-more-img-team">
+                <img src="./img/see-more-img.webp" alt="" />
+                <a href="" class="btn-all">ABOUT US</a>
+              </div>
               <div class="card">
                 <img src="./img/random-person-placeholder.webp" alt="" />
                 <h3>Sabal Shrestha</h3>
@@ -458,8 +451,10 @@
                   We make art with light. We create large-scale luminous and
                   digital facades
                 </p>
+                <div class="icons">
+                  <i class="bi-facebook"></i> <i class="bi-facebook"></i>
+                </div>
               </div>
-              <a href="" class="btn-all">ABOUT US</a>
             </div>
           </div>
         </div>
@@ -807,7 +802,7 @@
               </div>
             </div>
           </div>
-          <div class="counter row row-cols-4">
+          <div class="counter row row-cols-1 row-cols-md-2 row-cols-lg-4">
             <div class="cols">
               <span id="counter1">00</span>
               <p>Successful Projects</p>
@@ -902,12 +897,18 @@
     <script type="module">
       import Swiper from "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js";
       const swiper = new Swiper(".swiper", {
-        // Optional parameters
         loop: true,
         autoHeight: true,
-        slidesPerView: 4,
-        spaceBetween: 10,
-        // Navigation arrows
+        slidesPerView: 1,
+        spaceBetween: 20,
+        breakpoints: {
+          576: {
+            slidesPerView: 3,
+          },
+          991: {
+            slidesPerView: 4,
+          },
+        },
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
