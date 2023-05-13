@@ -1,3 +1,44 @@
+//Parallax Scrolling from Scrolling Start
+const sections = document.querySelectorAll("section");
+
+function isSectionInViewport(section) {
+  const rect = section.getBoundingClientRect();
+  const offset = rect.height * 0.6; // 60% offset
+  return (
+    rect.top <= window.innerHeight - offset &&
+    window.pageYOffset <= section.offsetTop + offset
+  );
+}
+
+window.addEventListener("scroll", () => {
+  sections.forEach((section) => {
+    const parallaxEls = section.querySelectorAll(".parallax-scroll");
+    let wasSectionInViewport = section.classList.contains("in-viewport");
+    let isSectionNowInViewport = isSectionInViewport(section);
+
+    if (isSectionNowInViewport && !wasSectionInViewport) {
+      let syValue = 0;
+      section.classList.add("in-viewport");
+    }
+
+    if (isSectionNowInViewport) {
+      let syValue = window.scrollY;
+      parallaxEls.forEach((el) => {
+        let speedx = el.dataset.speedx;
+        let speedy = el.dataset.speedy;
+        el.style.transform = `
+        translateX(calc(0% + ${-syValue * speedx}px))
+        translateY(calc(0% + ${syValue * speedy}px))`;
+      });
+    } else {
+      section.classList.remove("in-viewport");
+    }
+  });
+});
+
+//Parallax Scrolling from Scrolling End
+
+//Parallax Scrolling from Mouse Start
 const parallaxContainers = document.querySelectorAll(".parallax-container");
 
 parallaxContainers.forEach((parallaxContainer) => {
@@ -26,23 +67,10 @@ parallaxContainers.forEach((parallaxContainer) => {
     });
   });
 });
+//Parallax Scrolling from Mouse End
 
-const parallax_sel = document.querySelectorAll(".parallax-scroll");
-let syValue = 0;
-
-window.addEventListener("scroll", (e) => {
-  syValue = window.scrollY;
-
-  parallax_sel.forEach((el) => {
-    let speedx = el.dataset.speedx;
-    let speedy = el.dataset.speedy;
-    el.style.transform = `translateX(calc(-50% + ${
-      -syValue * speedx
-    }px)) translateY(calc(-50% + ${syValue * speedy}px))`;
-  });
-});
+//Navs and tabs filter Start
 filterObjects("all");
-
 function filterObjects(c) {
   var x, i;
   x = document.getElementsByClassName("box");
@@ -92,32 +120,4 @@ document.querySelectorAll(".menu li").forEach(function (item) {
     filterObjects(this.getAttribute("data-filter"));
   });
 });
-
-var slideIndex = 1;
-showSlide(slideIndex);
-
-function nextSlide() {
-  showSlide((slideIndex += 1));
-}
-
-function prevSlide() {
-  showSlide((slideIndex -= 1));
-}
-
-function currentSlide(n) {
-  showSlide((slideIndex = n));
-}
-
-function showSlide(n) {
-  var i;
-  var slides = document.getElementsByClassName("slides");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.transform = "translateX(-" + (slideIndex - 1) * 100 + "%)";
-  }
-}
+//Navs and tabs filter End
